@@ -1,0 +1,79 @@
+@import '../../global.scss';
+
+.about {
+  display: grid;
+
+  @include s-sm {
+    grid-template-areas:
+      'img imgSecond'
+      'text text';
+    grid-template-columns: repeat(2, 1fr);
+
+    :first-child {
+      grid-area: img;
+    }
+
+    :last-child {
+      grid-area: imgSecond;
+    }
+  }
+
+  @include s-xlg {
+    grid-template-areas: 'img text text imgSecond';
+    grid-template-columns: 29% 29% 11% 31%;
+    grid-template-rows: 33vh;
+  }
+
+  &__img {
+    height: 22.7rem;
+
+    @include s-sm {
+      height: 29vw;
+    }
+
+    @include s-xlg {
+      height: unset;
+    }
+  }
+
+  &__imgFirst {
+    background-image: url('../../assets/image-about-dark.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  &__imgSecond {
+    @extend .about__imgFirst;
+
+    background-image: url('../../assets/image-about-light.jpg');
+  }
+
+  &__content {
+    padding: 5.6rem 3.2rem;
+
+    @include s-sm {
+      grid-area: text;
+    }
+
+    @include s-xlg {
+      padding: 0 4.8rem;
+      align-self: center;
+    }
+  }
+
+  &__heading {
+    font-weight: bold;
+    font-size: 1.2rem;
+    line-height: 2.2rem;
+    letter-spacing: 0.5rem;
+    text-transform: uppercase;
+    color: $black;
+  }
+
+  &__text {
+    @extend %paragraph;
+
+    padding-top: 0.9rem;
+  }
+}

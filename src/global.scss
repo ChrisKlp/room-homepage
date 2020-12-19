@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@500;600;700&display=swap');
+
+$font-body: 'Spartan', sans-serif;
+
+$dark-gray: hsl(0, 0%, 63%);
+$black: hsl(0, 0%, 0%);
+$white: hsl(0, 0%, 100%);
+$very-dark-gray: hsl(0, 0%, 27%);
+
+$sliderImgHeight: 36rem;
+$sliderImgHeightMd: 53.4rem;
+$sliderImgHeightLg: 67vh;
+$sliderNavSize: 5.6rem;
+$sliderNavSizeXlg: 8rem;
+
+@mixin s-sm {
+    @media (min-width: 576px){
+        @content;
+    }
+}
+
+@mixin s-md {
+    @media (min-width: 768px){
+        @content;
+    }
+}
+
+@mixin s-lg {
+    @media (min-width: 992px){
+        @content;
+    }
+}
+
+@mixin s-xlg {
+    @media (min-width: 1200px){
+        @content;
+    }
+}
+
+%paragraph {
+    font-weight: 500;
+    font-size: 1.2rem;
+    line-height: 2rem;
+    letter-spacing: -0.025rem;
+    color: $dark-gray;
+}

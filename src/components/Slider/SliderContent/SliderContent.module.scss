@@ -1,0 +1,75 @@
+@import '../../../global.scss';
+
+.sliderContent {
+  background-color: $white;
+  z-index: 50;
+
+  &__wrapper {
+    padding: 7.2rem 3.2rem;
+
+    @include s-lg {
+      display: grid;
+      align-content: center;
+      height: $sliderImgHeightLg;
+      padding: 0 3.2rem;
+    }
+
+    @include s-xlg {
+      padding: 0 10rem;
+    }
+  }
+
+  &__heading {
+    font-weight: 600;
+    font-size: 2.8rem;
+    line-height: 3.1rem;
+    letter-spacing: -0.116667rem;
+
+    @include s-lg {
+      font-size: 4rem;
+      line-height: 4.5rem;
+      letter-spacing: -0.166667rem;
+    }
+  }
+
+  &__text {
+    @extend %paragraph;
+
+    padding: 1.4rem 0 5.2rem;
+
+    @include s-lg {
+      padding: 2.2rem 0 3.2rem;
+    }
+  }
+
+  &__link {
+    margin-bottom: 3.3rem;
+    display: flex;
+    gap: 4.3rem;
+    align-items: center;
+
+    &:hover {
+      .sliderContent__linkText {
+        color: $dark-gray;
+      }
+
+      .sliderContent__linkArrow {
+        fill: $dark-gray;
+      }
+    }
+  }
+
+  &__linkText {
+    font-weight: 500;
+    line-height: 1.6rem;
+    letter-spacing: 1rem;
+    color: $black;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  &__linkArrow {
+    fill: $black;
+    transition: fill 0.2s;
+  }
+}

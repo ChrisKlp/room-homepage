@@ -1,0 +1,33 @@
+@import '../../global.scss';
+
+.slider {
+  position: relative;
+  overflow: hidden;
+
+  @include s-lg {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include s-xlg {
+    grid-template-columns: 58% 42%;
+  }
+
+  &__image {
+    position: relative;
+    height: $sliderImgHeight;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    transition: background-image 0.5s cubic-bezier(0.13, 0.66, 0.36, 1);
+
+    @include s-md {
+      height: $sliderImgHeightMd;
+    }
+
+    @include s-lg {
+      height: $sliderImgHeightLg;
+    }
+  }
+}

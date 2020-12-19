@@ -1,0 +1,126 @@
+@import '../../global.scss';
+
+.header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+
+  &__wrapper {
+    position: relative;
+    padding: 4.8rem 2.4rem;
+    display: flex;
+    justify-content: space-between;
+    height: 11rem;
+
+    @include s-lg {
+      padding: 6.4rem;
+      justify-content: flex-start;
+      gap: 5.6rem;
+    }
+  }
+
+  &__toggle {
+    margin: -2.4rem;
+    padding: 2.4rem;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    @include s-lg {
+      display: none;
+    }
+  }
+
+  &__logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    @include s-lg {
+      position: static;
+      transform: translateX(0);
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include s-lg {
+      display: block;
+    }
+  }
+
+  &__navList {
+    list-style: none;
+    display: flex;
+    gap: 3.2rem;
+  }
+
+  &__navItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    font-weight: 600;
+    font-size: 1.2rem;
+    line-height: 1.3rem;
+    letter-spacing: -0.05rem;
+    color: $black;
+
+    @include s-lg {
+      color: $white;
+
+      &::after {
+        margin-top: 0.8rem;
+        width: 1.6rem;
+        height: 0.2rem;
+        transform: scaleX(0);
+        background-color: $white;
+        content: '';
+        transition: transform 0.15s ease;
+      }
+
+      &:hover::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+}
+
+.active {
+  .header {
+    &__wrapper {
+      background-color: $white;
+
+      @include s-lg {
+        background-color: transparent;
+      }
+    }
+
+    &__logo {
+      display: none;
+
+      @include s-lg {
+        display: block;
+      }
+    }
+
+    &__nav {
+      display: block;
+    }
+  }
+}
+
+.bgOverlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($black, 0.5);
+  z-index: 99;
+
+  @include s-lg {
+    display: none;
+  }
+}

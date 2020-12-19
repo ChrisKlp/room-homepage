@@ -1,0 +1,53 @@
+@import '../../../global.scss';
+
+.sliderNavigation {
+  position: absolute;
+  display: flex;
+  top: $sliderImgHeight - $sliderNavSize;
+  right: 0;
+  z-index: 60;
+
+  @include s-md {
+    top: $sliderImgHeightMd - $sliderNavSize;
+  }
+
+  @include s-lg {
+    top: calc(#{$sliderImgHeightLg} - #{$sliderNavSize});
+    right: unset;
+    left: 50%;
+  }
+
+  @include s-xlg {
+    left: 58%;
+    top: calc(#{$sliderImgHeightLg} - #{$sliderNavSizeXlg});
+  }
+
+  &__button {
+    display: grid;
+    place-items: center;
+    width: $sliderNavSize;
+    height: $sliderNavSize;
+    background-color: $black;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: $very-dark-gray;
+    }
+
+    @include s-xlg {
+      width: 5.5vw;
+      height: $sliderNavSizeXlg;
+    }
+
+    img {
+      height: 1.7rem;
+
+      @include s-xlg {
+        height: 2.8rem;
+      }
+    }
+  }
+}
