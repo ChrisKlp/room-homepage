@@ -1,6 +1,6 @@
 import style from './Slider.module.scss';
 import { slides } from '../../data';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import SliderNavigation from './SliderNavigation/SliderNavigation';
 import SliderContent from './SliderContent/SliderContent';
 
@@ -9,12 +9,15 @@ const Slider = () => {
 
   const [slideIndex, setSlideIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(mediaQuery.matches);
+  const sliderContentRef = useRef(null);
 
   const handleNextSlide = () => {
+    sliderContentRef.current.classList.add(style.hidden);
     setSlideIndex(prev => (prev + 1) % slides.length);
   };
 
   const handlePrevSlide = () => {
+    sliderContentRef.current.classList.add(style.hidden);
     setSlideIndex(prev => (slideIndex === 0 ? slides.length - 1 : prev - 1));
   };
 
@@ -24,6 +27,10 @@ const Slider = () => {
     mediaQuery.addEventListener('change', handler);
     return () => mediaQuery.removeEventListener('change', handler);
   }, [mediaQuery]);
+
+  useEffect(() => {
+    sliderContentRef.current.classList.remove(style.hidden);
+  }, [slideIndex]);
 
   const { desktopImage, mobileImage, heading, body } = slides[slideIndex];
 
@@ -39,7 +46,11 @@ const Slider = () => {
         prevSlideFn={handlePrevSlide}
         nextSlideFn={handleNextSlide}
       />
-      <SliderContent heading={heading} body={body} />
+      <SliderContent
+        sliderContentRef={sliderContentRef}
+        heading={heading}
+        body={body}
+      />
     </section>
   );
 };

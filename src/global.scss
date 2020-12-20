@@ -14,33 +14,37 @@ $sliderNavSize: 5.6rem;
 $sliderNavSizeXlg: 8rem;
 
 @mixin s-sm {
-    @media (min-width: 576px){
-        @content;
-    }
+  @media (min-width: 576px) {
+    @content;
+  }
 }
 
 @mixin s-md {
-    @media (min-width: 768px){
-        @content;
-    }
+  @media (min-width: 768px) {
+    @content;
+  }
 }
 
 @mixin s-lg {
-    @media (min-width: 992px){
-        @content;
-    }
+  @media (min-width: 992px) {
+    @content;
+  }
 }
 
 @mixin s-xlg {
-    @media (min-width: 1200px){
-        @content;
-    }
+  @media (min-width: 1200px) {
+    @content;
+  }
 }
 
 %paragraph {
-    font-weight: 500;
-    font-size: 1.2rem;
-    line-height: 2rem;
-    letter-spacing: -0.025rem;
-    color: $dark-gray;
+  font-weight: 500;
+  font-size: 1.2rem;
+  line-height: 2rem;
+  letter-spacing: -0.025rem;
+  color: $dark-gray;
+}
+
+.hidden {
+  visibility: hidden;
 }

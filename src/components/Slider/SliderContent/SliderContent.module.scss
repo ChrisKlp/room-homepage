@@ -73,3 +73,14 @@
     transition: fill 0.2s;
   }
 }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-5rem);
+  }
+}
+
+.fadeIn {
+  animation: fadeIn .5s both cubic-bezier(0.13, 0.66, 0.36, 1);
+}
